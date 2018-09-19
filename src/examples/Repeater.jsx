@@ -17,10 +17,37 @@ const validateConfig = {
     username: { type: 'string', required: true },
 };
 
+const repeatValues = [
+    { username: 'lily', gender: 'female', id: 'lily' },
+    { username: 'bobby', gender: 'male', id: 'bobby' }
+];
+
 class Example extends Component {
     constructor(props, context) {
         super(props, context);
-        this.core = new FormCore();
+        this.core = new FormCore({
+            values: {
+                repeater: repeatValues,
+                inlineRepeater: repeatValues,
+                inlineRepeaterMultiple: repeatValues,
+                selectTableRepeater: {
+                    value: [repeatValues[0]],
+                    dataSource: repeatValues,
+                },
+                selectInlineRepeater: {
+                    value: [repeatValues[0]],
+                    dataSource: repeatValues,
+                },
+                selectInlineRepeaterMultiple: {
+                    value: [repeatValues[0]],
+                    dataSource: repeatValues,
+                },
+                selectInlineRepeaterMultiple2: {
+                    value: [repeatValues[0], repeatValues[1]],
+                    dataSource: repeatValues,
+                }
+            }
+        });
         this.formConfig = {
             validateConfig,
             autoValidate: true
@@ -67,22 +94,29 @@ class Example extends Component {
 
                 <div className="example-item-wrapper">
                     <div className="example-title">Selectify Repeater Examples</div>
-                    <FormItem label="SelectTableRepeater" name="selectTableRepeater">
+                    <FormItem label="TableRepeater" name="selectTableRepeater">
                         <SelectTableRepeater asyncHandler={this.asyncHandler} formConfig={this.formConfig}>
                             <FormItem label="username" name="username"><Input style={{ width: '100px' }} /></FormItem>
                             <FormItem label="gender" name="gender"><RadioGroup style={{ width: 200 }} options={dataSource} /></FormItem>
                         </SelectTableRepeater>
                     </FormItem>
 
-                    <FormItem label="SelectInlineRepeater" name="selectInlineRepeater">
+                    <FormItem label="InlineRepeater" name="selectInlineRepeater">
                         <SelectInlineRepeater asyncHandler={this.asyncHandler} formConfig={this.formConfig}>
                             <FormItem label="username" name="username"><Input style={{ width: '100px' }} /></FormItem>
                             <FormItem label="gender" name="gender"><RadioGroup style={{ width: 200 }} options={dataSource} /></FormItem>
                         </SelectInlineRepeater>
                     </FormItem>
 
-                    <FormItem label="SelectInlineRepeater(multiple)" name="selectInlineRepeaterMultiple">
+                    <FormItem label="Inline(multiple)" name="selectInlineRepeaterMultiple">
                         <SelectInlineRepeater asyncHandler={this.asyncHandler} multiple formConfig={this.formConfig}>
+                            <FormItem label="username" name="username"><Input style={{ width: '100px' }} /></FormItem>
+                            <FormItem label="gender" name="gender"><RadioGroup style={{ width: 200 }} options={dataSource} /></FormItem>
+                        </SelectInlineRepeater>
+                    </FormItem>
+
+                    <FormItem label="Inline(multiple 2x)" name="selectInlineRepeaterMultiple2">
+                        <SelectInlineRepeater selectMode="multiple" asyncHandler={this.asyncHandler} multiple formConfig={this.formConfig}>
                             <FormItem label="username" name="username"><Input style={{ width: '100px' }} /></FormItem>
                             <FormItem label="gender" name="gender"><RadioGroup style={{ width: 200 }} options={dataSource} /></FormItem>
                         </SelectInlineRepeater>
