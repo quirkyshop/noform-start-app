@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import Basic from './page/Basic';
 import Repeater from './page/Repeater';

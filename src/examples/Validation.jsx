@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore, If } from 'noform';
-import { Input, Button, Select, Switch } from 'noform/lib/wrapper/antd';
+import { Input, Button, Switch } from 'noform/lib/wrapper/antd';
 import { Alert } from 'antd';
 
 const validateConfig = {
@@ -58,7 +58,7 @@ class Example extends Component {
                 <FormItem label="demand" name="demand"><Switch /></FormItem>
 
                 <If when={(values, { globalStatus }) => {
-                    return values.username == 'bobby';
+                    return values.username === 'bobby';
                 }}>
                     <FormItem label="hidden" name="hidden"><Input /></FormItem>
                 </If>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Form, { FormItem, FormCore, If } from 'noform';
+import Form, { FormItem, FormCore } from 'noform';
 import { Input, Select, Checkbox, Radio, Switch, Slider, DatePicker, TimePicker,
-    Rate, Cascader, TreeSelect, Upload, Button, Modal, Icon, InputNumber, AutoComplete } from 'noform/lib/wrapper/antd';
+    Rate, Cascader, TreeSelect, Upload, Button, Icon, InputNumber, AutoComplete } from 'noform/lib/wrapper/antd';
 import { Alert } from 'antd';
 
 const { TextArea } = Input;

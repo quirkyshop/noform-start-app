@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
-import { Input, Radio, Button } from 'noform/lib/wrapper/antd';
+import { Input, Radio } from 'noform/lib/wrapper/antd';
 import { TableRepeater, InlineRepeater, Selectify } from 'noform/lib/repeater/antd';
 
 const SelectTableRepeater = Selectify(TableRepeater);
@@ -8,10 +8,6 @@ const SelectInlineRepeater = Selectify(InlineRepeater);
 const { Group: RadioGroup } = Radio;
 
 const dataSource = [{ label: 'male', value: 'male' }, { label: 'female', value: 'female' }];
-
-function filter(value, key) {
-    return value.filter(item => (item.username && item.username.startsWith(key)));
-}
 
 const validateConfig = {
     username: { type: 'string', required: true },

@@ -34,7 +34,7 @@ class Example extends Component {
             nextVal = lastVal ? { [type]: null } : { [type]: `[${type}]` };
             break;
         case 'options':
-            nextVal = (!!lastVal && lastVal.length > 1 || !lastVal) ? { [type]: [...dataSource.slice(1)] } : { [type]: dataSource };
+            nextVal = ((!!lastVal && lastVal.length > 1) || !lastVal) ? { [type]: [...dataSource.slice(1)] } : { [type]: dataSource };
             break;
         default: break;
         }

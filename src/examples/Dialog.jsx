@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Form, { FormItem, FormCore } from 'noform';
-import { Input, Select, Checkbox, Radio, Switch, Slider, DatePicker, TimePicker,
-    Rate, Cascader, TreeSelect, Upload, Button, Modal, Icon, InputNumber, AutoComplete } from 'noform/lib/wrapper/antd';
+import Form, { FormItem } from 'noform';
+import { Input, Select, Checkbox, Radio, Switch, Button } from 'noform/lib/wrapper/antd';
 import DialogForm from 'noform/lib/dialog/antd';
 import { message, Alert } from 'antd';
 
@@ -20,19 +19,19 @@ class Example extends Component {
             <FormItem label="Switch" name="Switch"><Switch /></FormItem>
         </Form>
 
-        // 模拟 fetch / Request
-        const mockRequest = () => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                const isBigger5 = (Math.random() * 10) > 4;
-                    if (isBigger5) {
-                        resolve('success');
-                    } else {
-                        reject('reject');
-                    }
-                }, 500);
-            });
-        };
+        // mock fetch / Request
+        // const mockRequest = () => {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //         const isBigger5 = (Math.random() * 10) > 4;
+        //             if (isBigger5) {
+        //                 resolve('success');
+        //             } else {
+        //                 reject('reject');
+        //             }
+        //         }, 500);
+        //     });
+        // };
 
         DialogForm.show({
             title: 'title',
@@ -40,7 +39,6 @@ class Example extends Component {
             onOk: (values, hide) => { // 返回promise, 代替原有的preSubmit、responseCb、successCb
                 return new Promise(async (resolve, reject) => {
                     try {
-                        const result = await mockRequest('url', values);
                         resolve();
                         message.success('This is a message of success', 1, hide);
                     } catch (e) {

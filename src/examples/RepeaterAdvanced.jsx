@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
-import { InputNumber, Input, Radio, Button, Checkbox } from 'noform/lib/wrapper/antd';
-import { TableRepeater, InlineRepeater, Selectify } from 'noform/lib/repeater/antd';
+import { Input, Radio, Checkbox } from 'noform/lib/wrapper/antd';
+import { TableRepeater, Selectify } from 'noform/lib/repeater/antd';
 
 const SelectTableRepeater = Selectify(TableRepeater);
 const { Group: RadioGroup } = Radio;
 
 const dataSource = [{ label: 'male', value: 'male' }, { label: 'female', value: 'female' }];
-
-function filter(value, key) {
-    return value.filter(item => (item.username && item.username.startsWith(key)));
-}
-
 const validateConfig = {
     username: { type: 'string', required: true },
 };
