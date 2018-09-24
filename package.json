@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.8.0",
-    "babel-plugin-wrapper": "^1.0.12",
+    "babel-plugin-wrapper": "^1.0.14",
     "babel-polyfill": "^6.26.0",
     "react-app-rewired": "^1.6.2"
   }
