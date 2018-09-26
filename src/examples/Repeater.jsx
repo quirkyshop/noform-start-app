@@ -44,6 +44,8 @@ class Example extends Component {
                 }
             }
         });
+
+        window.core = this.core;
         this.formConfig = {
             validateConfig,
             autoValidate: true

@@ -14,7 +14,7 @@ const Example = () => (
         <h1>Resources: </h1>         
         <div><a href="https://github.com/alibaba/noform">NoForm Github</a></div>
         <div><a href="https://alibaba.github.io/noform">NoForm Docs</a></div>
-          <h3>Feel free to star us! <a class="github-button" href="https://github.com/alibaba/noform" data-icon="octicon-star" data-show-count="true" aria-label="Star alibaba/noform on GitHub">Star</a></h3>
+          <h3>Feel free to star us! <a className="github-button" href="https://github.com/alibaba/noform" data-icon="octicon-star" data-show-count="true" aria-label="Star alibaba/noform on GitHub">Star</a></h3>
       </ul>
       
       <ul>

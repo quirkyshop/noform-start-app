@@ -14,6 +14,8 @@ const dataSource = [
     { label: 'optB', value: 'optB'}
 ];
 
+const treeData = dataSource.map(item => ({...item, title: item.label }));
+
 const fileList = [
     { uid: 1, name: 'xxx.png', url: 'http://www.baidu.com/xxx.png', },
     { uid: 3, name: 'zzz.png', status: 'error', reponse: 'Server Error 500' }
@@ -73,7 +75,7 @@ class Example extends Component {
                 <FormItem label="TimePicker" name="TimePicker"><TimePicker /></FormItem>
                 <FormItem label="InputNumber" name="InputNumber"><InputNumber /></FormItem>
                 <FormItem label="Cascader" name="Cascader"><Cascader options={dataSource} /></FormItem>
-                <FormItem label="TreeSelect" name="TreeSelect"><TreeSelect treeData={dataSource} /></FormItem>
+                <FormItem label="TreeSelect" name="TreeSelect"><TreeSelect treeData={treeData} /></FormItem>
                 <FormItem label="Upload" name="Upload" value={fileList}>
                     <Upload >
                         <Button><Icon type="upload" /> Click to Upload</Button>
