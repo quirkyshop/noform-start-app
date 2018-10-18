@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
-import { Input, Radio } from 'noform/lib/wrapper/antd';
+import { Input, Radio, Switch } from 'noform/lib/wrapper/antd';
 import { TableRepeater, InlineRepeater, Selectify } from 'noform/lib/repeater/antd';
 
 const SelectTableRepeater = Selectify(TableRepeater);
@@ -77,8 +77,8 @@ class Example extends Component {
 
                     <FormItem label="InlineRepeater" name="inlineRepeater">
                         <InlineRepeater formConfig={this.formConfig}>
-                            <FormItem label="username" name="username"><Input style={{ width: '100px' }} /></FormItem>
-                            <FormItem label="gender" name="gender"><RadioGroup style={{ width: 200 }} options={dataSource} /></FormItem>
+                            <FormItem defaultMinWidth={false} label="gender" name="gender"><RadioGroup style={{ width: 200 }} options={dataSource} /></FormItem>
+                            <FormItem defaultMinWidth={false} label="trigger" name="isOpen"><Switch checkedChildren="on" unCheckedChildren="off" /></FormItem>
                         </InlineRepeater>
                     </FormItem>
 
