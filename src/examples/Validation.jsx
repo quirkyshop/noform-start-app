@@ -41,6 +41,8 @@ class Example extends Component {
             console.log('errors', err);
             if (!err) {
 
+            } else {
+                this.core.scrollToError();
             }
         });
     }
@@ -48,7 +50,7 @@ class Example extends Component {
     render() {
         return (
             <Form core={this.core} layout={{ label: 8, control: 16 }}>
-                <div className="example-title">Condition Examples</div>
+                <div className="example-title">Validation Examples</div>
                 <Alert style={{ marginBottom: 12 }} message={<div>
                     <div>1. demand on, fields change will trigger validate execution</div>
                     <div>2. username equals bobby, hidden field will show</div>

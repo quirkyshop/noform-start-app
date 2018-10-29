@@ -4,6 +4,7 @@ import Basic from './page/Basic';
 import Repeater from './page/Repeater';
 import FormConfig from './page/FormConfig';
 import RepeaterConfig from './page/RepeaterConfig';
+import NestedForm from './page/NestedForm';
 import RepeaterAdvanced from './page/RepeaterAdvanced';
 import './App.less';
 
@@ -21,6 +22,7 @@ const Example = () => (
         <h1>Examples Entry:</h1>                
         <li><Link to="/">Basic</Link></li>
         <li><Link to="/formConfig">Form(Configuartion)</Link></li>
+        <li><Link to="/nestedForm">Form(Nested)</Link></li>
         <li><Link to="/repeater">Repeater</Link></li>
         <li><Link to="/repeaterConfig">Repeater(Configuartion)</Link></li>
         <li><Link to="/RepeaterAdvanced">Repeater(Advanced)</Link></li>
@@ -30,6 +32,7 @@ const Example = () => (
 
       <Route exact path="/" component={Basic} />
       <Route exact path="/formConfig" component={FormConfig} />
+      <Route exact path="/nestedForm" component={NestedForm} />
       <Route path="/repeater" component={Repeater} />
       <Route path="/repeaterConfig" component={RepeaterConfig} />
       <Route path="/RepeaterAdvanced" component={RepeaterAdvanced} />
