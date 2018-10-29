@@ -74,7 +74,7 @@ class Example extends Component {
                     </InlineRepeater>
                 </FormItem>
                 <FormItem label="livenessProbe" name="livenessProbe">                   
-                    <Form layout={{ label: 0, control: 24 }}>
+                    <Form layout={false}>
                         <FormItem label="isExec" name="isExec"><Checkbox>isExec</Checkbox></FormItem>
                         <If when={(values) => {
                             return !!values.isExec;
