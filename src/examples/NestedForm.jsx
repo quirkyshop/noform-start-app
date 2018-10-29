@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Form, { FormItem, FormCore } from 'noform';
-import { Input} from 'noform/lib/wrapper/antd';
+import Form, { FormItem, FormCore, If } from 'noform';
+import { Input, Checkbox } from 'noform/lib/wrapper/antd';
 import { InlineRepeater } from 'noform/lib/repeater/antd';
 
 
@@ -65,7 +65,7 @@ class Example extends Component {
 
     render() {
         return (<div>
-            <Form core={this.core} layout={{ label: 8, control: 16 }}>
+            <Form core={this.core} layout={{ label: 4, control: 20 }}>
                 <FormItem label="name" name="name"><Input /></FormItem>
                 <FormItem label="ports" name="ports">
                     <InlineRepeater multiple formConfig={this.formConfig}>
@@ -73,18 +73,27 @@ class Example extends Component {
                         <FormItem label="targetPort" name="targetPort"><Input style={{ width: '100px' }} /></FormItem>
                     </InlineRepeater>
                 </FormItem>
-                <FormItem label="livenessProbe" name="livenessProbe">
+                <FormItem label="livenessProbe" name="livenessProbe">                   
                     <Form layout={{ label: 0, control: 24 }}>
-                        <FormItem label="exec" name="exec">
-                            <InlineRepeater multiple formConfig={this.execFormConfig}>
-                                <FormItem label="command" name="command"><Input style={{ width: '100px' }} /></FormItem>
-                            </InlineRepeater>
-                        </FormItem>
-                        <FormItem label="http" name="http">
-                            <InlineRepeater multiple formConfig={this.httpFormConfig}>
-                                <FormItem label="port" name="port"><Input style={{ width: '100px' }} /></FormItem>
-                            </InlineRepeater>
-                        </FormItem>
+                        <FormItem label="isExec" name="isExec"><Checkbox>isExec</Checkbox></FormItem>
+                        <If when={(values) => {
+                            return !!values.isExec;
+                        }}>
+                            <FormItem label="exec" name="exec">
+                                <InlineRepeater multiple formConfig={this.execFormConfig}>
+                                    <FormItem label="command" name="command"><Input style={{ width: '100px' }} /></FormItem>
+                                </InlineRepeater>
+                            </FormItem>
+                        </If>
+                        <If when={(values) => {
+                            return !values.isExec;
+                        }}>
+                            <FormItem label="http" name="http">
+                                <InlineRepeater multiple formConfig={this.httpFormConfig}>
+                                    <FormItem label="port" name="port"><Input style={{ width: '100px' }} /></FormItem>
+                                </InlineRepeater>
+                            </FormItem>
+                        </If>
                     </Form>
                 </FormItem>
                 <FormItem label="img" name="img"><Input /></FormItem>
