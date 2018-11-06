@@ -38,6 +38,8 @@ class Example extends Component {
             }
         });
 
+        window.nestedCore= this.core;
+
         this.formConfig = {
             validateConfig,
             autoValidate: true
@@ -66,13 +68,13 @@ class Example extends Component {
     render() {
         return (<div>
             <Form core={this.core} layout={{ label: 4, control: 20 }}>
-                <FormItem label="name" name="name"><Input /></FormItem>
+                {/* <FormItem label="name" name="name"><Input /></FormItem>
                 <FormItem label="ports" name="ports">
                     <InlineRepeater multiple formConfig={this.formConfig}>
                         <FormItem label="port" name="port"><Input style={{ width: '100px' }} /></FormItem>
                         <FormItem label="targetPort" name="targetPort"><Input style={{ width: '100px' }} /></FormItem>
                     </InlineRepeater>
-                </FormItem>
+                </FormItem> */}
                 <FormItem label="livenessProbe" name="livenessProbe">                   
                     <Form layout={false}>
                         <FormItem label="isExec" name="isExec"><Checkbox>isExec</Checkbox></FormItem>

@@ -3,6 +3,7 @@ import Form, { FormItem } from 'noform';
 import { Input, Select, Checkbox, Radio, Switch, Button } from 'noform/lib/wrapper/antd';
 import DialogForm from 'noform/lib/dialog/antd';
 import { message, Alert } from 'antd';
+import AComp from './Antd';
 
 const dataSource = [
     { label: 'optA', value: 'optA' },
@@ -10,6 +11,10 @@ const dataSource = [
 ];
 
 class Example extends Component {
+    constructor(props) {
+        super(props)
+    }
+    
     popupDialog = () => {
         const innerForm = <Form core={this.core} layout={{ label: 8, control: 16 }}>
             <FormItem label="input" name="input"><Input /></FormItem>
@@ -35,7 +40,7 @@ class Example extends Component {
 
         DialogForm.show({
             title: 'title',
-            content: innerForm,
+            content: <AComp />,
             onOk: (values, hide) => { // 返回promise, 代替原有的preSubmit、responseCb、successCb
                 return new Promise(async (resolve, reject) => {
                     try {
