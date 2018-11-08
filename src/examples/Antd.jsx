@@ -20,11 +20,10 @@ const fileList = [
     { uid: 1, name: 'xxx.png', url: 'http://www.baidu.com/xxx.png', },
     { uid: 3, name: 'zzz.png', status: 'error', reponse: 'Server Error 500' }
 ];
-  
 
 class Example extends Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         this.core = new FormCore();
     }
 

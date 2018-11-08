@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form, { FormItem } from 'noform';
+import Form, { FormItem, FormCore } from 'noform';
 import { Input, Select, Checkbox, Radio, Switch, Button } from 'noform/lib/wrapper/antd';
 import DialogForm from 'noform/lib/dialog/antd';
 import { message, Alert } from 'antd';
@@ -38,10 +38,23 @@ class Example extends Component {
         //     });
         // };
 
+        const Ff = () => {
+            const core = new FormCore({
+                validateConfig: {
+                    test: { required: true, message: 'test is required' }
+                }
+            });
+            return <Form core={core}>
+                <FormItem label="test" name="test"><Input /></FormItem>
+            </Form>
+        }
+
         DialogForm.show({
             title: 'title',
-            content: <AComp />,
+            content: Ff,
+            enableValidate: true,
             onOk: (values, hide) => { // 返回promise, 代替原有的preSubmit、responseCb、successCb
+                console.log('values', values);
                 return new Promise(async (resolve, reject) => {
                     try {
                         resolve();
