@@ -3,7 +3,7 @@ import Form, { FormItem, FormCore } from 'noform';
 import { Input, Select, Checkbox, Radio, Switch, Button } from 'noform/lib/wrapper/antd';
 import DialogForm from 'noform/lib/dialog/antd';
 import { message, Alert } from 'antd';
-import AComp from './Antd';
+import Ff from './ThirdForm';
 
 const dataSource = [
     { label: 'optA', value: 'optA' },
@@ -38,16 +38,7 @@ class Example extends Component {
         //     });
         // };
 
-        const Ff = () => {
-            const core = new FormCore({
-                validateConfig: {
-                    test: { required: true, message: 'test is required' }
-                }
-            });
-            return <Form core={core}>
-                <FormItem label="test" name="test"><Input /></FormItem>
-            </Form>
-        }
+        
 
         DialogForm.show({
             title: 'title',
