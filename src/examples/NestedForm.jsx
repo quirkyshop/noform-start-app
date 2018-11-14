@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore, If } from 'noform';
-import { Input, Checkbox } from 'noform/lib/wrapper/antd';
-import { InlineRepeater } from 'noform/lib/repeater/antd';
+import { Input, Checkbox } from 'nowrapper/lib/antd';
+import { InlineRepeater } from 'nowrapper/lib/antd/repeater';
 
 
 const validateConfig = {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
-import { InputNumber, Input, Radio, Button, Checkbox } from 'noform/lib/wrapper/antd';
-import { TableRepeater, InlineRepeater, Selectify } from 'noform/lib/repeater/antd';
+import { InputNumber, Input, Radio, Button, Checkbox } from 'nowrapper/lib/antd';
+import { TableRepeater, InlineRepeater, Selectify } from 'nowrapper/lib/antd/repeater';
 
 const SelectInlineRepeater = Selectify(InlineRepeater);
 const { Group: RadioGroup } = Radio;

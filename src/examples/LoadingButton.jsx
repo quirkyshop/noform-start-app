@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'noform/lib/wrapper/antd';
+import { Button } from 'nowrapper/lib/antd';
 import PropTypes from 'prop-types';
 
 export default class LoadingButton extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
-import { Select, Button } from 'noform/lib/wrapper/antd';
+import { Select, Button } from 'nowrapper/lib/antd';
 
 const dataSource = [
     { label: 'optA', value: 'optA' },

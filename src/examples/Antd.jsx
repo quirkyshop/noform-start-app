@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
 import { Input, Select, Checkbox, Radio, Switch, Slider, DatePicker, TimePicker,
-    Rate, Cascader, TreeSelect, Upload, Button, Icon, InputNumber, AutoComplete } from 'noform/lib/wrapper/antd';
-import { Alert } from 'antd';
+    Rate, Cascader, TreeSelect, Upload, Button, InputNumber, AutoComplete } from 'nowrapper/lib/antd';
+import { Alert, Icon } from 'antd';
 
 const { TextArea } = Input;
 const { Group: RadioGroup } = Radio;
@@ -70,7 +70,6 @@ class Example extends Component {
                 <FormItem label="Rate" name="Rate"><Rate /></FormItem>
                 <FormItem label="RangePicker" name="RangePicker"><RangePicker showTime format="YYYY-MM-DD HH:mm:ss" /></FormItem>
                 <FormItem label="DatePicker" name="DatePicker"><DatePicker /></FormItem>
-                <FormItem label="时间" name="time"><DatePicker /></FormItem>
                 <FormItem label="TimePicker" name="TimePicker"><TimePicker /></FormItem>
                 <FormItem label="InputNumber" name="InputNumber"><InputNumber /></FormItem>
                 <FormItem label="Cascader" name="Cascader"><Cascader options={dataSource} /></FormItem>

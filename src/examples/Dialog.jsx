@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
-import { Input, Select, Checkbox, Radio, Switch, Button } from 'noform/lib/wrapper/antd';
-import DialogForm from 'noform/lib/dialog/antd';
+import { Input, Select, Checkbox, Radio, Switch, Button, Dialog } from 'nowrapper/lib/antd';
 import { message, Alert } from 'antd';
 import Ff from './ThirdForm';
 
@@ -40,7 +39,7 @@ class Example extends Component {
 
         
 
-        DialogForm.show({
+        Dialog.show({
             title: 'title',
             content: Ff,
             enableValidate: true,

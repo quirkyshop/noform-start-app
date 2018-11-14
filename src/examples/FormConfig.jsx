@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
-import { InputNumber, Input, Checkbox } from 'noform/lib/wrapper/antd';
+import { InputNumber, Input, Checkbox } from 'nowrapper/lib/antd';
 
 class Example extends Component {
     constructor(props, context) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Form, { FormItem, FormCore } from 'noform';
-import { Input } from 'noform/lib/wrapper/antd';
+import { Input } from 'nowrapper/lib/antd';
 
 const Ff = () => {
     const core = new FormCore({

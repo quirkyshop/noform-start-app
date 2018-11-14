@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore, If } from 'noform';
-import { Input, Button, Switch } from 'noform/lib/wrapper/antd';
+import { Input, Button, Switch } from 'nowrapper/lib/antd';
 import { Alert } from 'antd';
 
 const validateConfig = {
