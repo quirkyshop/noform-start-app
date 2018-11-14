@@ -2,7 +2,7 @@
   "name": "noform-app",
   "version": "0.1.5",
   "dependencies": {
-    "antd": "^3.9.2",
+    "antd": "^3.10.7",
     "babel-plugin-wrapper": "^1.0.13",
     "noform": "^1.1.31",
     "nowrapper": "^1.0.8",
