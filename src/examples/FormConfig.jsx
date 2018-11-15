@@ -45,8 +45,7 @@ class Example extends Component {
     }
 
     // TODO: 
-    // 1. layout不能动态变更
-    // 2. name = label 会崩
+    // 1. name = label 会崩
     renderConfig = () => {
         const inlineLayout = { layout: { label: 18, control: 6 }, style: { width: 160, marginBottom: 12 } };
         const inlineLayout2 = { layout: { label: 12, control: 12 }, style: { width: 120, marginBottom: 12 } };

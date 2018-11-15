@@ -6,10 +6,16 @@ const Ff = () => {
     const core = new FormCore({
         validateConfig: {
             test: { required: true, message: 'test is required' }
+        },
+        values: {
+            sort: 0,
         }
     });
-    return <Form core={core}>
-        <FormItem label="test" name="test"><Input /></FormItem>
+
+    window.ff = core;
+    return <Form core={core} layout={{ label: 4, control: 20 }} defaultMinWidth={false} full>
+        {/* <FormItem full label="test" name="test"><Input /></FormItem> */}
+        <FormItem full label="sort" name="sort"><Input /></FormItem>
     </Form>
 }
 

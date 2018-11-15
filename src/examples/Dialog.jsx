@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
 import { Input, Select, Checkbox, Radio, Switch, Button, Dialog } from 'nowrapper/lib/antd';
 import { message, Alert } from 'antd';
+import LocaleProvider from 'antd/lib/locale-provider';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 import Ff from './ThirdForm';
 
 const dataSource = [
@@ -43,6 +45,8 @@ class Example extends Component {
             title: 'title',
             content: Ff,
             enableValidate: true,
+            // locale: 'zh',
+            footerAlign: 'label', // left | center | right
             onOk: (values, hide) => { // 返回promise, 代替原有的preSubmit、responseCb、successCb
                 console.log('values', values);
                 return new Promise(async (resolve, reject) => {
@@ -59,14 +63,16 @@ class Example extends Component {
     }
 
     render() {
-        return (            
-            <div>
-                <div className="example-title">Diloag Examples</div>
-                <Alert style={{ marginBottom: 12 }} message={<div>
-                    <div>submit dialog form has 50/50 chance success or failed</div>
-                </div>} type="info" showIcon />
-                <Button onClick={this.popupDialog}>Popup Dialog Form</Button>
-            </div>
+        return ( 
+            <LocaleProvider locale={zhCN}>
+                <div>
+                    <div className="example-title">Diloag Examples</div>
+                    <Alert style={{ marginBottom: 12 }} message={<div>
+                        <div>submit dialog form has 50/50 chance success or failed</div>
+                    </div>} type="info" showIcon />
+                    <Button onClick={this.popupDialog}>Popup Dialog Form</Button>
+                </div>
+            </LocaleProvider>           
         );
     }
 }
