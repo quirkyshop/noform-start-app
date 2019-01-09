@@ -6,6 +6,8 @@ import LocaleProvider from 'antd/lib/locale-provider';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import Ff from './ThirdForm';
 
+
+
 const dataSource = [
     { label: 'optA', value: 'optA' },
     { label: 'optB', value: 'optB' },
@@ -22,6 +24,7 @@ class Example extends Component {
             <FormItem label="select" name="select"><Select options={dataSource} /></FormItem>
             <FormItem label="Checkbox" name="Checkbox"><Checkbox /></FormItem>
             <FormItem label="Radio" name="Radio"><Radio /></FormItem>
+            
             <FormItem label="Switch" name="Switch"><Switch /></FormItem>
         </Form>
 

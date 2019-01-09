@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
 import { Input, Select, Checkbox, Radio, Switch, Slider, DatePicker, TimePicker,
     Rate, Cascader, TreeSelect, Upload, Button, InputNumber, AutoComplete } from 'nowrapper/lib/antd';
-import { Alert, Icon } from 'antd';
+import { Alert, Icon, Row, Col, Checkbox as ACheckBox } from 'antd';
 
 const { TextArea } = Input;
 const { Group: RadioGroup } = Radio;
 const { Group: CheckboxGroup } = Checkbox;
-const { RangePicker } = DatePicker;
+const { RangePicker, MonthPicker } = DatePicker;
 
 const dataSource = [
     { label: 'optA', value: 'optA'},
@@ -20,6 +20,10 @@ const fileList = [
     { uid: 1, name: 'xxx.png', url: 'http://www.baidu.com/xxx.png', },
     { uid: 3, name: 'zzz.png', status: 'error', reponse: 'Server Error 500' }
 ];
+
+const checkRowChange = (value) => {
+    console.log('row change...', value);
+}
 
 class Example extends Component {
     constructor(props) {
@@ -65,10 +69,17 @@ class Example extends Component {
                 <FormItem label="Radio" name="Radio"><Radio >Selected</Radio></FormItem>
                 <FormItem label="Switch" name="Switch"><Switch /></FormItem>
                 <FormItem label="CheckboxGroup" name="CheckboxGroup"><CheckboxGroup options={dataSource} /></FormItem>
+                
+                <FormItem label="MMRangePicker" name="MMRangePicker"><RangePicker
+                    format="YYYY-MM"
+                    placeholder={["start","end"]}
+                    mode={['month', 'month']}
+                /></FormItem>
+                <FormItem label="MonthPicker" name="MonthPicker"><MonthPicker placeholder="MonthPicker" format="YYYY年MM月" /></FormItem>
                 <FormItem label="RadioGroup" name="RadioGroup"><RadioGroup options={dataSource} /></FormItem>
                 <FormItem label="Slider" name="Slider"><Slider /></FormItem>
                 <FormItem label="Rate" name="Rate"><Rate /></FormItem>
-                <FormItem label="RangePicker" name="RangePicker"><RangePicker showTime format="YYYY-MM-DD HH:mm:ss" /></FormItem>
+                <FormItem label="RangePicker" name="RangePicker"><RangePicker mode={['month', 'month']} /></FormItem>
                 <FormItem label="DatePicker" name="DatePicker"><DatePicker /></FormItem>
                 <FormItem label="TimePicker" name="TimePicker"><TimePicker /></FormItem>
                 <FormItem label="InputNumber" name="InputNumber"><InputNumber /></FormItem>

@@ -1,6 +1,9 @@
 import React from 'react';
 import Form, { FormItem, FormCore } from 'noform';
-import { Input } from 'nowrapper/lib/antd';
+import { Input, DatePicker } from 'nowrapper/lib/antd';
+
+const { RangePicker, MonthPicker } = DatePicker;
+
 
 class ThirdForm extends React.Component {
     constructor(props) {
@@ -19,6 +22,7 @@ class ThirdForm extends React.Component {
     render() {
         return <Form core={this.core} layout={{ label: 4, control: 20 }} defaultMinWidth={false} full>
             {/* <FormItem full label="test" name="test"><Input /></FormItem> */}
+            <FormItem label="MonthPicker" name="MonthPicker"><MonthPicker placeholder="MonthPicker" format="YYYY年MM月" /></FormItem>
             <FormItem full label="sort" name="sort"><Input /></FormItem>
         </Form>
     }
