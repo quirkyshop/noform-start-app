@@ -6,7 +6,12 @@ import FormConfig from './page/FormConfig';
 import RepeaterConfig from './page/RepeaterConfig';
 import NestedForm from './page/NestedForm';
 import RepeaterAdvanced from './page/RepeaterAdvanced';
+import zh_CN from 'antd/lib/locale-provider/zh_CN';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
 import './App.less';
+
+moment.locale('zh-cn');
 
 const Example = () => (
   <Router>
