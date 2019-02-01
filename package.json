@@ -3,8 +3,8 @@
   "version": "0.1.5",
   "dependencies": {
     "antd": "^3.10.7",
-    "noform": "^1.1.31",
-    "nowrapper": "^1.0.14",
+    "noform": "^1.1.52",
+    "nowrapper": "^1.0.24",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-router-dom": "^4.3.1",

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Checkbox } from 'antd';
 import Core from '../examples/Core';
 import Status from '../examples/Status';
 import Condition from '../examples/Condition';

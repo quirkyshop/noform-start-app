@@ -6,6 +6,7 @@ import FormConfig from './page/FormConfig';
 import RepeaterConfig from './page/RepeaterConfig';
 import NestedForm from './page/NestedForm';
 import RepeaterAdvanced from './page/RepeaterAdvanced';
+import RepeaterMaster from './page/RepeaterMaster';
 import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
@@ -31,6 +32,7 @@ const Example = () => (
         <li><Link to="/repeater">Repeater</Link></li>
         <li><Link to="/repeaterConfig">Repeater(Configuartion)</Link></li>
         <li><Link to="/RepeaterAdvanced">Repeater(Advanced)</Link></li>
+        <li><Link to="/RepeaterMaster">Repeater(Master)😈</Link></li>
       </ul>
 
       <hr />
@@ -41,6 +43,7 @@ const Example = () => (
       <Route path="/repeater" component={Repeater} />
       <Route path="/repeaterConfig" component={RepeaterConfig} />
       <Route path="/RepeaterAdvanced" component={RepeaterAdvanced} />
+      <Route path="/RepeaterMaster" component={RepeaterMaster} />
     </div>
   </Router>
 );

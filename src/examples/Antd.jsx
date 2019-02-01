@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
 import { Input, Select, Checkbox, Radio, Switch, Slider, DatePicker, TimePicker,
     Rate, Cascader, TreeSelect, Upload, Button, InputNumber, AutoComplete } from 'nowrapper/lib/antd';
-import { Alert, Icon, Row, Col, Checkbox as ACheckBox } from 'antd';
+import { Alert, Icon } from 'antd';
 
 const { TextArea } = Input;
 const { Group: RadioGroup } = Radio;
@@ -20,10 +20,6 @@ const fileList = [
     { uid: 1, name: 'xxx.png', url: 'http://www.baidu.com/xxx.png', },
     { uid: 3, name: 'zzz.png', status: 'error', reponse: 'Server Error 500' }
 ];
-
-const checkRowChange = (value) => {
-    console.log('row change...', value);
-}
 
 class Example extends Component {
     constructor(props) {
