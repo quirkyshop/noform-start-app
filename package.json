@@ -4,6 +4,7 @@
   "dependencies": {
     "antd": "^3.10.7",
     "noform": "^1.1.52",
+    "nolist": "^1.0.24",
     "nowrapper": "^1.0.24",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
