@@ -43,22 +43,17 @@ class ListCustom extends React.Component {
         return <Button onClick={editForm}>编辑</Button>
     }
 
-    customRender = ({ search, clear, builtin, DynamicBuiltin }) => {
-        return <div>
-          <DynamicBuiltin />
-          <Button style={{ marginRight: '8px', verticalAlign: 'top' }} onClick={search}>search</Button>
-          <Button style={{ verticalAlign: 'top' }} onClick={clear}>clear</Button>
-        </div>
-      }
-
     render() {
         const url = 'https://www.easy-mock.com/mock/5c3881ad4ca7fb6358ce72c9/example/nolist_basic';
         return <div>
             <List url={url} onError={this.handleError} onMount={this.onMount}>
-                <Filter render={this.customRender}>
+                <Filter noLayout>
                     <Filter.Item label="username" name="username"><Input placeholder="placeholder" /></Filter.Item>
                     <Filter.Item label="age" name="age"><Input /></Filter.Item>
                     <Filter.Item label="date" name="date"><DatePicker placeholder="placeholder"/></Filter.Item>
+                    <Filter.Search><Button style={{ marginRight: '8px', verticalAlign: 'top' }} >search</Button></Filter.Search>
+                    <Filter.Clear><Button style={{ verticalAlign: 'top' }} >clear</Button></Filter.Clear>
+                    
                 </Filter>
                 <Table>
                     <Table.Column title="id" dataIndex="id" />
