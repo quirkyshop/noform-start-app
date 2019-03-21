@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form, { FormItem, FormCore } from 'noform';
+import Form, { If, FormItem, FormCore } from 'noform';
 import { Input, Select, Checkbox, Radio, Switch, Slider, DatePicker, TimePicker,
     Rate, Cascader, TreeSelect, Upload, Button, InputNumber, AutoComplete } from 'nowrapper/lib/antd';
 import { Alert, Icon } from 'antd';
@@ -24,11 +24,19 @@ const fileList = [
 class Example extends Component {
     constructor(props) {
         super(props);
-        this.core = new FormCore();
+        this.core = new FormCore({
+            values: {
+                input: 'abc',
+            }
+        });
     }
 
     setStatus = (status) => {
         this.core.setGlobalStatus(status);
+    }
+
+    setItemStatus = (status) => {
+        this.core.setStatus('single', status);
     }
 
     getValues = () => {
@@ -48,6 +56,10 @@ class Example extends Component {
                         <Button style={{ marginRight: 12 }} onClick={this.setStatus.bind(this, 'edit')}>Edit</Button>
                         <Button style={{ marginRight: 12 }} onClick={this.setStatus.bind(this, 'preview')}>Preview</Button>
                         <Button style={{ marginRight: 12 }} onClick={this.setStatus.bind(this, 'disabled')}>Disabled</Button>
+                        <div />
+                        <Button style={{ marginRight: 12 }} onClick={this.setItemStatus.bind(this, 'edit')}>single edit</Button>
+                        <Button style={{ marginRight: 12 }} onClick={this.setItemStatus.bind(this, 'preview')}>single preview</Button>
+                        <Button style={{ marginRight: 12 }} onClick={this.setItemStatus.bind(this, 'disabled')}>single disabled</Button>
                     </div>
                 </FormItem>
 
@@ -56,6 +68,14 @@ class Example extends Component {
                         <Button style={{ marginRight: 12 }} onClick={this.getValues}>getValues</Button>
                     </div>
                 </FormItem>
+
+                <If when={(values) => values.input === 'abc' }>
+                    <div>
+                        <FormItem label="测试单独item 状态" name='single'>
+                            <CheckboxGroup options={dataSource} />
+                        </FormItem>
+                    </div>
+                </If>
 
                 <FormItem label="input" name="input"><Input /></FormItem>
                 <FormItem label="AutoComplete" name="AutoComplete"><AutoComplete options={dataSource} /></FormItem>                
