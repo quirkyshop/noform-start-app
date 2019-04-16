@@ -14,7 +14,10 @@ const dataSource = [
     { label: 'optB', value: 'optB'}
 ];
 
-const treeData = dataSource.map(item => ({...item, title: item.label }));
+let treeData = [];
+for (let i = 0; i < 25; i++) {
+    treeData.push({ label: `label${i}`, value: `v${i}`, title: `title${i}`});
+}
 
 const fileList = [
     { uid: 1, name: 'xxx.png', url: 'http://www.baidu.com/xxx.png', },
@@ -29,6 +32,7 @@ class Example extends Component {
                 input: 'abc',
             }
         });
+        window.antdCore = this.core;
     }
 
     setStatus = (status) => {

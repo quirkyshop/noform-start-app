@@ -6,7 +6,9 @@ import FormConfig from './page/FormConfig';
 import RepeaterConfig from './page/RepeaterConfig';
 import NestedForm from './page/NestedForm';
 import RepeaterAdvanced from './page/RepeaterAdvanced';
+import RepeaterTable from './page/RepeaterTable';
 import RepeaterMaster from './page/RepeaterMaster';
+import RepeaterStatus from './page/RepeaterStatus';
 import ListBasic from './page/ListBasic';
 import ListCustom from './page/ListCustom';
 import ListMultiple from './page/ListMultiple';
@@ -27,7 +29,9 @@ const Example = () => (
         <li><Link to="/repeater">Repeater</Link></li>
         <li><Link to="/repeaterConfig">Repeater(Configuartion)</Link></li>
         <li><Link to="/RepeaterAdvanced">Repeater(Advanced)</Link></li>
+        <li><Link to="/RepeaterStatus">Repeater(status) </Link></li>
         <li><Link to="/RepeaterMaster">Repeater(Master) <span role="img" aria-label="monster">😈</span></Link></li>
+        <li><Link to="/RepeaterTable">Repeater(with Table) <span role="img" aria-label="good">👍</span></Link></li>        
       </ul>
 
       <ul style={{ display: 'inline-block', verticalAlign: 'top' }}>
@@ -53,6 +57,8 @@ const Example = () => (
       <Route path="/repeaterConfig" component={RepeaterConfig} />
       <Route path="/RepeaterAdvanced" component={RepeaterAdvanced} />
       <Route path="/RepeaterMaster" component={RepeaterMaster} />
+      <Route path="/RepeaterStatus" component={RepeaterStatus} />
+      <Route path="/RepeaterTable" component={RepeaterTable} />
 
       <Route path="/nolistBasic" component={ListBasic} />
       <Route path="/nolistCustom" component={ListCustom} />
