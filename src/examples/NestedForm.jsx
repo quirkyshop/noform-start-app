@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore, If } from 'noform';
 import { Input, Checkbox } from 'nowrapper/lib/antd';
+import { Button } from 'antd';
 import { InlineRepeater } from 'nowrapper/lib/antd/repeater';
 
 
@@ -20,7 +21,7 @@ const httpValidateConfig = {
 class Example extends Component {
     constructor(props, context) {
         super(props, context);
-        this.core = new FormCore({
+        window.nestedParentCore = this.core = new FormCore({
             onChange: (fireKeys, values, ctx) => {
                 
             },
@@ -38,7 +39,12 @@ class Example extends Component {
             }
         });
 
-        window.nestedCore= this.core;
+        this.nestedCore = new FormCore({
+            autoValidate: true,
+            validateConfig: {
+                inner: { required: true, message: 'nesed required' },
+            }
+        });
 
         this.formConfig = {
             validateConfig,
@@ -65,6 +71,11 @@ class Example extends Component {
         }, 500);
     }
 
+    validateNested = async () => {
+        const errors = await this.core.validate();
+        
+    }
+
     render() {
         return (<div>
             <Form core={this.core} layout={{ label: 4, control: 20 }}>
@@ -76,7 +87,8 @@ class Example extends Component {
                     </InlineRepeater>
                 </FormItem> */}
                 <FormItem label="livenessProbe" name="livenessProbe">                   
-                    <Form layout={false}>
+                    <Form layout={false} core={this.nestedCore}>
+                        <FormItem label="inner" name="inner"><Input /></FormItem>
                         <FormItem label="isExec" name="isExec"><Checkbox>isExec</Checkbox></FormItem>
                         <If when={(values) => {
                             return !!values.isExec;
@@ -99,6 +111,7 @@ class Example extends Component {
                     </Form>
                 </FormItem>
                 <FormItem label="img" name="img"><Input /></FormItem>
+                <FormItem label=""><Button onClick={this.validateNested}>Validate Nested</Button></FormItem>
             </Form>
         </div>);
     }
