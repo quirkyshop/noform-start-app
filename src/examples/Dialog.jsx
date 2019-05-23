@@ -2,10 +2,9 @@ import React from 'react';
 import Form, { If, FormItem, FormCore } from 'noform';
 import { Input, Select, Button, Dialog } from 'nowrapper/lib/antd';
 import { InlineRepeater } from 'nowrapper/lib/antd/repeater';
-import { message, Alert, Table } from 'antd';
+import { Alert, Table } from 'antd';
 import LocaleProvider from 'antd/lib/locale-provider';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
-import Ff from './ThirdForm';
 
 const { Column } = Table;
 const customizeFormType = {
@@ -26,43 +25,50 @@ const customizeFormType = {
       RangePicker: '日期区间'
     }
 };
-const customizeFormList = [{
-    id: 8,
-    categoryId: '10020190509114652100600004935306',
-    title: '生日',
-    type: 'DatePicker',
-    options: null
-  },
-  {
-    id: 9,
-    categoryId: '10020190509114652100600004935306',
-    title: '大学时段',
-    type: 'RangePicker',
-    options: null
-  },
-  {
-    id: 10,
-    categoryId: '10020190509114652100600004935306',
-    title: '性别',
-    type: 'Radio',
-    options: [
-      {
-        label: '男',
-        value: 'man'
-      },
-      {
-        label: '女',
-        value: 'women'
-      }
-    ]
-  }
-]
-const customizeForm = new FormCore({
-    validateConfig: {
-      title: [{ required: true, max: 10, message: '请输入表单标题，最多为10个字符'}],
-      type: [{ required: true, message: '请选择表单类型'}],
+const customizeFormList = [
+    {
+        id: 1,
+        title: '生日',
+        type: 'DatePicker',
+        options: null
     },
-});
+    {
+        id: 2,
+        title: '大学时段',
+        type: 'RangePicker',
+        options: null
+    },
+    {
+        id: 3,
+        title: '性别',
+        type: 'Radio',
+        options: [
+            {
+                label: '男',
+                value: 'man'
+            },
+            {
+                label: '女',
+                value: 'women'
+            }
+        ]
+    },
+    {
+        id: 4,
+        title: '是否成年',
+        type: 'Radio',
+        options: [
+            {
+                label: '是',
+                value: 'yes'
+            },
+            {
+                label: '否',
+                value: 'no'
+            }
+        ]
+    }
+]
 const inlineRepeaterConfig = {
     locale: 'zh',
     addText: '新增选项',
@@ -75,6 +81,12 @@ const inlineRepeaterConfig = {
 };
 const Example = () => {
     const onCreateFormItem = (item = { title: '', type: '', id: 0 }) => {
+        const customizeForm = new FormCore({
+            validateConfig: {
+              title: [{ required: true, max: 10, message: '请输入表单标题，最多为10个字符'}],
+              type: [{ required: true, message: '请选择表单类型'}],
+            },
+        });
         customizeForm.setValues(item);
         customizeForm.resetError();
         const onOk = (values, hide) => {
