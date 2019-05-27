@@ -5,6 +5,7 @@ import Condition from '../examples/Condition';
 import Validation from '../examples/Validation';
 import Antd from '../examples/Antd';
 import Dialog from '../examples/Dialog';
+import DrawerForm from '../examples/DrawerForm';
 
 class App extends Component {
     constructor(props, context) {
@@ -17,6 +18,7 @@ class App extends Component {
             Validation,
             Antd,
             Dialog,
+            DrawerForm
         };
 
         this.examplesOptions = Object.keys(this.examplesMap).map(exampleKey => ({ label: exampleKey, value: this.examplesMap[exampleKey] }));
