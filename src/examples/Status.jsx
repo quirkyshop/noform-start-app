@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form, { FormItem, FormCore } from 'noform';
-import { Input, Button } from 'nowrapper/lib/antd';
+import { Input, Button, DatePicker, Select } from 'nowrapper/lib/antd';
 
 class Example extends Component {
     constructor(props, context) {
@@ -22,8 +22,41 @@ class Example extends Component {
             <Form core={this.core} layout={{ label: 8, control: 16 }}>
                 <div className="example-title">Status Examples</div>
                 <FormItem label="username" name="username" value="username"><Input /></FormItem>
-                <FormItem label="age" name="age" value="age"><Input /></FormItem>
-                <FormItem label="gender" name="gender" value="gender"><Input /></FormItem>
+                <FormItem label="datePicker" name="datePicker">
+                    <DatePicker
+                        showTime={{ format: 'HH:mm:ss' }}
+                        format="YYYY-MM-DD HH:mm:ss"
+                    />
+                </FormItem>
+                <FormItem
+                    layout={null}
+                    render={(values, core) => {
+                        const list = [
+                            { label: 'optA', value: 'optA'},
+                            { label: 'optB', value: 'optB'},
+                            { label: 'optC', value: 'optC'},
+                            { label: 'optD', value: 'optD'},
+                            { label: 'optE', value: 'optE'},
+                        ]
+                        return (
+                            <FormItem label="多选" name="gender">
+                                <Select
+                                    mode="multiple"
+                                    onChange={(Ids) => core.setItemValue('gender', Ids)}
+                                    value={values.gender}
+                                >
+                                    {
+                                        list.map((i) =>
+                                            <Select.Option key={i.value}>
+                                                {i.label}
+                                            </Select.Option>
+                                        )
+                                    }
+                                </Select>
+                            </FormItem>
+                        );
+                    }}
+                />
 
                 <FormItem label="Global status">
                     <div >
@@ -39,11 +72,11 @@ class Example extends Component {
                         <Button style={{ marginRight: 12 }} onClick={this.setItemStatus.bind(this, 'username', 'disabled')}>Disabled</Button>
                     </div>
                 </FormItem>
-                <FormItem label="age - status">
+                <FormItem label="datePicker - status">
                     <div >
-                        <Button style={{ marginRight: 12 }} onClick={this.setItemStatus.bind(this, 'age', 'edit')}>Edit</Button>
-                        <Button style={{ marginRight: 12 }} onClick={this.setItemStatus.bind(this, 'age', 'preview')}>Preview</Button>
-                        <Button style={{ marginRight: 12 }} onClick={this.setItemStatus.bind(this, 'age', 'disabled')}>Disabled</Button>
+                        <Button style={{ marginRight: 12 }} onClick={this.setItemStatus.bind(this, 'datePicker', 'edit')}>Edit</Button>
+                        <Button style={{ marginRight: 12 }} onClick={this.setItemStatus.bind(this, 'datePicker', 'preview')}>Preview</Button>
+                        <Button style={{ marginRight: 12 }} onClick={this.setItemStatus.bind(this, 'datePicker', 'disabled')}>Disabled</Button>
                     </div>
                 </FormItem>
                 <FormItem label="gender - status">

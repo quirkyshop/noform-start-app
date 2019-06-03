@@ -143,7 +143,7 @@ const Example = () => {
                   render={(values, core) => {
                     return (
                       <Form core={customizeForm}>
-                        {values.customizeFormList.map((child, index) => {
+                        {values.customizeFormList.map((child) => {
                           const {title, type, options, id} = child;
                           return (
                             <FormItem
