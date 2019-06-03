@@ -147,7 +147,7 @@ const Example = () => {
                           const {title, type, options, id} = child;
                           return (
                             <FormItem
-                              key={index}
+                              key={id}
                               label={title}
                               name={id}
                               required
