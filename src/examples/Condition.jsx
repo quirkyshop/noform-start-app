@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form, { FormItem, FormCore, If } from 'noform';
+import Form, { FormItem, FormCore, If, Item } from 'noform';
 import { Input, Button } from 'nowrapper/lib/antd';
 import { Alert } from 'antd';
 
@@ -72,6 +72,15 @@ class Example extends Component {
                         </div>
                     </FormItem>                  
                 </If>
+
+                <Item render={(values) => {
+                    if (values.username === 'bobby') {
+                        return <FormItem label="itemwrapp" name="itemwrapp">
+                            <Input />
+                        </FormItem>
+                    }
+                    return null;
+                }}/>
 
                 <FormItem label="trigger">
                     <div >
